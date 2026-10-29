@@ -1,0 +1,510 @@
+{
+  "AS51 Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "AS51 Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "AS51T Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "ASA51 Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "AUDUSD Curncy|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "CL1 Comdty|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "CPI CHNG Index|BN_SURVEY_MEDIAN": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "CPI CHNG Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "CPI YOY Index|BN_SURVEY_MEDIAN": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "CPI YOY Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "DAX Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "DAX Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "DAXK Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "DJTTR Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "DJUSHB Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "DJUSHB Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "DJUTR Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "DXY Curncy|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "EURUSD Curncy|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "EWZ US Equity|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "EWZ US Equity|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "FTSEMIB Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "FTSEMIB Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "FTSEMIBN Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "GBPUSD Curncy|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "GDBR10 Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "GJGB10 Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "HG1 Comdty|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "HSCEI Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "HSCEI Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "KRE US Equity|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "KRE US Equity|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "KRX Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "KRX Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "KRXTR Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "MCX Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "MCX Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "MCXNUK Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "MDAX Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "MDAX Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "MXEF Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "MXEF Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "NDUEEGF Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "NDX Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "NDX Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "NFP TCH Index|BN_SURVEY_MEDIAN": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "NFP TCH Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "NKY Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "NKY Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "NKYTR Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "RSP US Equity|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "RSP US Equity|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "RTY Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "RTY Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "RUTTR Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5COND Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5COND Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5CONS Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5CONS Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5ENRS Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5ENRS Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5FINL Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5FINL Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5INDU Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5INDU Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5MATR Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5MATR Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5UTIL Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "S5UTIL Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SMI Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SMI Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SMIC Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SMIN Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SOX Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SOX Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SPTR Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SPX Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SPX Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SPXEWI Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SPXEWI Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SX5E Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SX5E Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SX5GT Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SX5T Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SX6P Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SX6P Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SX6R Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SX7E Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SX7E Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SX7T Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SXPP Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SXPP Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SXPR Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SXXP Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SXXP Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "SXXR Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "TMCXG Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "TP17BNK Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "TPNBNK Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "TPNBNK Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "TPX Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "TPX Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "TPXDDVD Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "TPXNTR Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "TRAN Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "TRAN Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "TUKXG Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "UKX Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "UKX Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "UKXNUK Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "USDBRL Curncy|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "USDCHF Curncy|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "USDHKD Curncy|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "USDJPY Curncy|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "USGG10YR Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "USGG2YR Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "USGGBE10 Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "USGGT10Y Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "UTIL Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "UTIL Index|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "VIX Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "VNKY Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "VOLQ Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "XHB US Equity|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "XHB US Equity|TOT_RETURN_INDEX_GROSS_DVDS": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "XNDX Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  },
+  "XSOX Index|PX_LAST": {
+    "checked_from": "2005-01-01",
+    "checked_through": "2026-10-29"
+  }
+}

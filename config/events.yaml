@@ -1,0 +1,22 @@
+# Central-bank dates are maintained by hand. Leave a list empty until you fill it.
+# CPI and NFP are Bloomberg economic series. Surprise = actual minus BN_SURVEY_MEDIAN,
+# once that field is confirmed by the verification report.
+central_banks:
+  fomc: []
+  ecb: []
+  boj: []
+  boe: []
+
+releases:
+  us_cpi:
+    ticker: "CPI CHNG Index"
+    consensus_field: BN_SURVEY_MEDIAN
+    note: "US CPI urban consumers, month on month, seasonally adjusted."
+  us_cpi_yoy:
+    ticker: "CPI YOY Index"
+    consensus_field: BN_SURVEY_MEDIAN
+    note: "US CPI year on year. Used for the 3% inflation regime as well as the release surprise."
+  us_nfp:
+    ticker: "NFP TCH Index"
+    consensus_field: BN_SURVEY_MEDIAN
+    note: "US nonfarm payrolls, change in thousands."

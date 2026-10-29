@@ -1,0 +1,27 @@
+# History window and the rules the data layer will not quietly relax.
+history_start: "2005-01-01"
+history_end: null          # null means today, so an incremental run picks up the new tail
+on_server: true            # B-PIPE. desk_core would otherwise open the desktop Terminal on Windows.
+cache_dir: cache
+
+# Phase 2 reads these. They are lagged so a weight for day t uses data through t-1 only.
+beta_window: 252
+vol_window: 63
+beta_lag: 1
+vol_lag: 1
+
+# A full equity calendar covers about 96% of weekdays. 80% is a hole, not a holiday.
+sparse_weekday_coverage: 0.80
+min_history_years: 5
+
+# How many spread sessions a shut market may be carried as a zero return.
+ffill_limit: 5
+
+# A total-return series must compound at least this much more than price, on the overlap.
+# 5% over a multi-year window is dividends. Less than that is noise or an already-TR index.
+tr_growth_gap: 0.05
+
+# Historical field used when no dedicated total-return ticker resolved.
+# On a price index, BDH of this field tracks the total-return index (SPTR-like).
+# It is not applied on top of an index that is already a performance index.
+tr_field: TOT_RETURN_INDEX_GROSS_DVDS

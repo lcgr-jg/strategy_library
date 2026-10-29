@@ -1,0 +1,83 @@
+# Factor transforms. Phase 3 regresses spread returns on these changes.
+# Nothing here is rescaled.
+#
+# diff: daily change in the quoted level.
+#   Yields, breakevens, real yields, OAS and CESI are quoted in percentage points
+#   on Bloomberg (4.94 means 4.94%, not 0.0494). A beta is therefore
+#   "spread return per 1 percentage point", not per basis point.
+#   Do not divide by 100 unless a later phase says so in this file.
+# pct: simple percent change of the level. Used for things you hold as a price
+#   (the dollar, oil, copper, USDJPY).
+#
+# us_2s10s is not a ticker. It is the 10y yield minus the 2y yield, in the same
+# percentage points, and then the daily change of that slope.
+factors:
+  - id: us_2y
+    name: "US 2y yield"
+    ticker: "USGG2YR Index"
+    transform: diff
+    unit: percent
+  - id: us_10y
+    name: "US 10y yield"
+    ticker: "USGG10YR Index"
+    transform: diff
+    unit: percent
+  - id: us_10y_real
+    name: "US 10y real yield"
+    ticker: "USGGT10Y Index"
+    transform: diff
+    unit: percent
+  - id: us_10y_be
+    name: "US 10y breakeven"
+    ticker: "USGGBE10 Index"
+    transform: diff
+    unit: percent
+  - id: us_2s10s
+    name: "US 2s10s slope"
+    derived: [us_10y, us_2y]
+    transform: diff
+    unit: percent
+    note: "Level is us_10y minus us_2y. The regression uses the daily change of that level."
+  - id: dxy
+    name: "Dollar index"
+    ticker: "DXY Curncy"
+    transform: pct
+    unit: return
+  - id: wti
+    name: "WTI front future"
+    ticker: "CL1 Comdty"
+    transform: pct
+    unit: return
+  - id: copper
+    name: "Copper front future"
+    ticker: "HG1 Comdty"
+    transform: pct
+    unit: return
+  - id: usdjpy
+    name: "USDJPY"
+    ticker: "USDJPY Curncy"
+    transform: pct
+    unit: return
+    note: "Percent change of the yen-per-dollar quote. Up means a stronger dollar."
+  - id: hy_oas
+    name: "US high yield OAS"
+    ticker: "LF98OAS Index"
+    transform: diff
+    unit: percent
+    note: "Did not resolve on the Phase 1 B-PIPE probe. Left here so the failure stays visible. Not replaced with an ETF price."
+  - id: bund_10y
+    name: "Germany 10y"
+    ticker: "GDBR10 Index"
+    transform: diff
+    unit: percent
+  - id: jgb_10y
+    name: "Japan 10y"
+    ticker: "GJGB10 Index"
+    transform: diff
+    unit: percent
+  - id: cesi_usd
+    name: "US economic surprise"
+    ticker: "CESIUSD Index"
+    transform: diff
+    unit: index_points
+    note: "Did not resolve on the Phase 1 B-PIPE probe. Daily change is the intended transform if it later resolves."

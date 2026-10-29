@@ -1,0 +1,348 @@
+# Spread definitions. expected_drivers are hypotheses, not measured betas.
+# A leg uses tr_ticker when a dedicated total-return index resolved.
+# tr_field is the fallback historical field on the price ticker.
+# basis: total_return means the price ticker is already a performance index.
+# alignment asia_to_us shifts Asian returns onto the previous US session.
+# See src/strategy_library/data/calendar.py for why the shift points that way.
+
+- id: us_cyc_def
+  name: "S&P cyclicals vs defensives"
+  long:
+    - {ticker: "S5INDU Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+    - {ticker: "S5MATR Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+  short:
+    - {ticker: "S5CONS Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+    - {ticker: "S5UTIL Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [us_growth, cyclicals]
+  expected_drivers: {us_10y: +, us_2s10s: +}
+  sizing_default: beta_neutral
+  vol_legs: {long: "VIX Index", short: null}
+  alignment: native
+  notes: "Equal-weight pair of sleeves. Industrials and materials versus staples and utilities. No dedicated sector total-return tickers resolved; the gross-dividend history field is the total-return series if it compounds."
+
+- id: rty_spx
+  name: "Russell 2000 vs S&P 500"
+  long: {ticker: "RTY Index", tr_ticker: "RUTTR Index", basis: total_return_gross, currency: USD, region: US}
+  short: {ticker: "SPX Index", tr_ticker: "SPTR Index", basis: total_return_gross, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [us_small_cap, risk]
+  expected_drivers: {hy_oas: "-", us_2y: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: native
+  notes: "RUTTR is Russ 2000 TR. SPTR is the S&P 500 total return. RVX did not resolve, so the long vol leg is empty."
+
+- id: spw_spx
+  name: "S&P equal weight vs S&P 500"
+  long: {ticker: "SPXEWI Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+  short: {ticker: "SPX Index", tr_ticker: "SPTR Index", basis: total_return_gross, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [breadth, concentration]
+  expected_drivers: {us_10y: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: native
+  notes: "SPW Index and SPXEW Index did not resolve. SPXEWI Index is the S&P Equal Weight index that did. RSP is the ETF version, in rsp_spx."
+
+- id: rsp_spx
+  name: "RSP vs S&P 500"
+  long: {ticker: "RSP US Equity", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US, instrument: etf}
+  short: {ticker: "SPX Index", tr_ticker: "SPTR Index", basis: total_return_gross, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [breadth, concentration]
+  expected_drivers: {us_10y: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: native
+  notes: "ETF versus index. RSP's stated underlying SPXEWTR Index did not resolve. ETF price is not dividend-reinvested unless the total-return field compounds."
+
+- id: ndx_spx
+  name: "Nasdaq 100 vs S&P 500"
+  long: {ticker: "NDX Index", tr_ticker: "XNDX Index", basis: total_return_gross, currency: USD, region: US}
+  short: {ticker: "SPX Index", tr_ticker: "SPTR Index", basis: total_return_gross, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [duration, megacap]
+  expected_drivers: {us_10y_real: "-", us_10y: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: native
+  notes: "XNDX is NASDAQ 100 total return. VXN did not resolve."
+
+- id: s5finl_s5util
+  name: "S&P financials vs utilities"
+  long: {ticker: "S5FINL Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+  short: {ticker: "S5UTIL Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [curve, banks]
+  expected_drivers: {us_2s10s: "+", us_10y: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: "VIX Index", short: null}
+  alignment: native
+  notes: ""
+
+- id: kre_s5finl
+  name: "KRE vs S&P financials"
+  long: {ticker: "KRE US Equity", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US, instrument: etf}
+  short: {ticker: "S5FINL Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [regional_banks, credit]
+  expected_drivers: {us_2s10s: "+", hy_oas: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: native
+  notes: "KRE is the regional-bank ETF. Its stated underlying SPSIRBKT Index did not resolve. KRE changed benchmark from KBW to S&P regional banks in 2011. krx_s5finl is the index pair that did resolve."
+
+- id: krx_s5finl
+  name: "KBW regional banks vs S&P financials"
+  long: {ticker: "KRX Index", tr_ticker: "KRXTR Index", basis: total_return_gross, currency: USD, region: US}
+  short: {ticker: "S5FINL Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [regional_banks, credit]
+  expected_drivers: {us_2s10s: "+", hy_oas: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: native
+  notes: "KRX is the KBW Regional Banking index, not the S&P select-industry index KRE tracks today. It is the regional-bank index this login can see."
+
+- id: xhb_spx
+  name: "XHB vs S&P 500"
+  long: {ticker: "XHB US Equity", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US, instrument: etf}
+  short: {ticker: "SPX Index", tr_ticker: "SPTR Index", basis: total_return_gross, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [housing, rates]
+  expected_drivers: {us_10y: "-", us_10y_real: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: native
+  notes: "XHB is the homebuilders ETF. Its stated underlying SPSIHOTR Index did not resolve. djushb_spx is the homebuilder index that did."
+
+- id: djushb_spx
+  name: "DJ home construction vs S&P 500"
+  long: {ticker: "DJUSHB Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+  short: {ticker: "SPX Index", tr_ticker: "SPTR Index", basis: total_return_gross, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [housing, rates]
+  expected_drivers: {us_10y: "-", us_10y_real: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: native
+  notes: "DJUSHB is DJ US Total Market Home Construction. It is not the S&P Homebuilders Select Industry index XHB tracks. The name says total market, not total return."
+
+- id: sox_spx
+  name: "SOX vs S&P 500"
+  long: {ticker: "SOX Index", tr_ticker: "XSOX Index", basis: total_return_gross, currency: USD, region: US}
+  short: {ticker: "SPX Index", tr_ticker: "SPTR Index", basis: total_return_gross, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [semis, cycle]
+  expected_drivers: {us_10y_real: "-", copper: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: native
+  notes: "XSOX is the PHLX semiconductor total return."
+
+- id: s5enrs_s5cond
+  name: "S&P energy vs discretionary"
+  long: {ticker: "S5ENRS Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+  short: {ticker: "S5COND Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [oil, inflation]
+  expected_drivers: {wti: "+", us_10y_be: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: "VIX Index", short: null}
+  alignment: native
+  notes: ""
+
+- id: tran_util
+  name: "Dow transports vs utilities"
+  long: {ticker: "TRAN Index", tr_ticker: "DJTTR Index", basis: total_return_gross, currency: USD, region: US}
+  short: {ticker: "UTIL Index", tr_ticker: "DJUTR Index", basis: total_return_gross, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [cycle, dow_theory]
+  expected_drivers: {us_10y: "+", wti: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: "VIX Index", short: null}
+  alignment: native
+  notes: "DJT Index did not resolve and is a different security. TRAN and UTIL are the Dow averages. DJTTR and DJUTR are their total-return indices."
+
+- id: sx7e_sx6p
+  name: "Euro Stoxx banks vs STOXX 600 utilities"
+  long: {ticker: "SX7E Index", tr_ticker: "SX7T Index", basis: total_return_net, currency: EUR, region: EU}
+  short: {ticker: "SX6P Index", tr_ticker: "SX6R Index", basis: total_return_net, currency: EUR, region: EU}
+  region: EU
+  currency: EUR
+  themes: [europe_banks, curve]
+  expected_drivers: {bund_10y: "+", us_2s10s: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: null}
+  alignment: native
+  notes: "Both total-return legs are net. SX7T is Euro Stoxx banks. SX6R is STOXX 600 utilities. The price legs are already from those two families, so the family mismatch is in the original pair. SX6T is Euro Stoxx utilities and is not used. V2X did not resolve."
+
+- id: ftsemib_dax
+  name: "FTSE MIB vs DAX"
+  long: {ticker: "FTSEMIB Index", tr_ticker: "FTSEMIBN Index", basis: total_return_net, currency: EUR, region: EU}
+  short: {ticker: "DAX Index", basis: total_return, price_reference: "DAXK Index", currency: EUR, region: EU}
+  region: EU
+  currency: EUR
+  themes: [europe_periphery, italy]
+  expected_drivers: {bund_10y: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: null}
+  alignment: native
+  notes: "DAX Index is already the performance index. DAXK is the price index and is not the short leg. FTSEMIBN is net, so the dividend convention is mixed and the report should say so."
+
+- id: mdax_dax
+  name: "MDAX vs DAX"
+  long: {ticker: "MDAX Index", basis: total_return, currency: EUR, region: EU}
+  short: {ticker: "DAX Index", basis: total_return, price_reference: "DAXK Index", currency: EUR, region: EU}
+  region: EU
+  currency: EUR
+  themes: [germany, midcap]
+  expected_drivers: {bund_10y: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: null}
+  alignment: native
+  notes: "MDAX Index comes back named MDAX PERF INDEX, so it is treated as already total return. MDAXK did not resolve. The verifier still compares the gross-dividend field so a stacked dividend would be visible."
+
+- id: smi_sx5e
+  name: "SMI vs Euro Stoxx 50"
+  long: {ticker: "SMI Index", tr_ticker: "SMIC Index", basis: total_return_gross, currency: CHF, region: EU}
+  short: {ticker: "SX5E Index", tr_ticker: "SX5GT Index", basis: total_return_gross, currency: EUR, region: EU}
+  region: EU
+  currency: mixed
+  themes: [switzerland, defensives]
+  expected_drivers: {dxy: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: null}
+  alignment: native
+  notes: "Gross total return on both legs. SMIN and SX5T are the net versions and are probed, not used. Local mode does not convert CHF into EUR."
+
+- id: sxpp_sxxp
+  name: "STOXX basic resources vs STOXX 600"
+  long: {ticker: "SXPP Index", tr_ticker: "SXPR Index", basis: total_return_net, currency: EUR, region: EU}
+  short: {ticker: "SXXP Index", tr_ticker: "SXXR Index", basis: total_return_net, currency: EUR, region: EU}
+  region: EU
+  currency: EUR
+  themes: [materials, china]
+  expected_drivers: {copper: "+", dxy: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: null}
+  alignment: native
+  notes: "Net on both legs. A gross ticker for basic resources did not resolve. SXXGR is the STOXX 600 gross series and is not used, so the short leg stays net and matches the long leg."
+
+- id: tpx_nky
+  name: "TOPIX vs Nikkei 225"
+  long: {ticker: "TPX Index", tr_ticker: "TPXDDVD Index", basis: total_return_gross, currency: JPY, region: JP}
+  short: {ticker: "NKY Index", tr_ticker: "NKYTR Index", basis: total_return_gross, currency: JPY, region: JP}
+  region: JP
+  currency: JPY
+  themes: [boj_normalisation, jpy, japan_banks]
+  expected_drivers: {jgb_10y: "+", usdjpy: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VNKY Index"}
+  alignment: native
+  notes: "Both legs are Japanese, so the spread itself is not shifted. US event studies can still shift both legs later. TPXDDVD is TOPIX gross dividends. TPXNTR is the net series and is only probed."
+
+- id: tpxbnk_tpx
+  name: "TOPIX banks vs TOPIX"
+  long: {ticker: "TPNBNK Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: JPY, region: JP}
+  short: {ticker: "TPX Index", tr_ticker: "TPXDDVD Index", basis: total_return_gross, currency: JPY, region: JP}
+  region: JP
+  currency: JPY
+  themes: [boj_normalisation, japan_banks]
+  expected_drivers: {jgb_10y: "+", usdjpy: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VNKY Index"}
+  alignment: native
+  notes: "No dedicated TOPIX Banks ticker was known up front. TPNBNK Index resolves as TOPIX BANKS INDEX and is the leg. TP17BNK Index is the newer TOPIX-17 banks series; it is probed and not used."
+
+- id: mcx_ukx
+  name: "FTSE 250 vs FTSE 100"
+  long: {ticker: "MCX Index", tr_ticker: "TMCXG Index", basis: total_return_gross, currency: GBP, region: UK}
+  short: {ticker: "UKX Index", tr_ticker: "TUKXG Index", basis: total_return_gross, currency: GBP, region: UK}
+  region: UK
+  currency: GBP
+  themes: [uk_domestic, gbp]
+  expected_drivers: {dxy: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: null}
+  alignment: native
+  notes: "TMCXG is FTSE 250 total return. TUKXG is FTSE 100 total return. MCXNUK and UKXNUK are the net series and are only probed. MCXT is a Euro Stoxx mid-cap ticker and is not the FTSE 250."
+
+- id: mxef_spx
+  name: "MSCI EM vs S&P 500"
+  long: {ticker: "MXEF Index", tr_ticker: "NDUEEGF Index", basis: total_return_net, currency: USD, region: GLOBAL}
+  short: {ticker: "SPX Index", tr_ticker: "SPTR Index", basis: total_return_gross, currency: USD, region: US}
+  region: GLOBAL
+  currency: USD
+  themes: [em, dollar, china]
+  expected_drivers: {dxy: "-", copper: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: native
+  notes: "NDUEEGF is MSCI daily net total return. SPTR is a gross-style S&P total return, so the dividend convention is mixed on purpose and flagged. MXEF is not shifted: the EM index is struck around the US close and already includes that day's Asian sessions."
+
+- id: hscei_spx
+  name: "HSCEI vs S&P 500"
+  long: {ticker: "HSCEI Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: HKD, region: HK}
+  short: {ticker: "SPX Index", tr_ticker: "SPTR Index", basis: total_return_gross, currency: USD, region: US}
+  region: GLOBAL
+  currency: mixed
+  themes: [china, offshore]
+  expected_drivers: {dxy: "-", copper: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: asia_to_us
+  notes: "Hong Kong closes before the US open. alignment asia_to_us places the next Hong Kong session's return on the prior US date. No dedicated HSCEI total-return ticker resolved. HSCEITR is a turnover series and is not used."
+
+- id: ibov_mxef
+  name: "Ibovespa vs MSCI EM"
+  long: {ticker: "IBOV Index", currency: BRL, region: BR}
+  short: {ticker: "MXEF Index", tr_ticker: "NDUEEGF Index", basis: total_return_net, currency: USD, region: GLOBAL}
+  region: GLOBAL
+  currency: mixed
+  themes: [brazil, em]
+  expected_drivers: {dxy: "-", wti: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: null}
+  alignment: native
+  notes: "IBOV Index did not resolve on this B-PIPE login, and neither did PETR4 BZ Equity. The spread is kept so the failure stays in the report. ewz_mxef is the US-listed substitute that does resolve."
+
+- id: ewz_mxef
+  name: "EWZ vs MSCI EM"
+  long: {ticker: "EWZ US Equity", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US, instrument: etf}
+  short: {ticker: "MXEF Index", tr_ticker: "NDUEEGF Index", basis: total_return_net, currency: USD, region: GLOBAL}
+  region: GLOBAL
+  currency: USD
+  themes: [brazil, em]
+  expected_drivers: {dxy: "-", wti: "+"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: null}
+  alignment: native
+  notes: "Substitute for ibov_mxef. EWZ is a US-listed ETF, so this is not the local Ibovespa. Brazil cash did not resolve on this login."
+
+- id: as51_spx
+  name: "ASX 200 vs S&P 500"
+  long: {ticker: "AS51 Index", tr_ticker: "AS51T Index", basis: total_return_gross, currency: AUD, region: AU}
+  short: {ticker: "SPX Index", tr_ticker: "SPTR Index", basis: total_return_gross, currency: USD, region: US}
+  region: GLOBAL
+  currency: mixed
+  themes: [australia, commodities]
+  expected_drivers: {copper: "+", dxy: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: asia_to_us
+  notes: "Sydney is closed before the US open, so the same next-session shift as Hong Kong applies. AS51T is the ASX 200 total return. ASA51 is the same series and is only probed."

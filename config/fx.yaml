@@ -1,0 +1,33 @@
+# Spot used to turn a local index level into dollars.
+# usd_per_local true: quote is dollars for one unit of local currency (EURUSD). Multiply.
+# usd_per_local false: quote is local currency per dollar (USDJPY). Divide.
+# Forward points are ignored. That is the hedged-vs-unhedged split documented in data/fx.py.
+quotes:
+  EUR:
+    ticker: "EURUSD Curncy"
+    usd_per_local: true
+    note: "Dollars per euro."
+  GBP:
+    ticker: "GBPUSD Curncy"
+    usd_per_local: true
+    note: "Dollars per pound."
+  AUD:
+    ticker: "AUDUSD Curncy"
+    usd_per_local: true
+    note: "Dollars per Australian dollar."
+  JPY:
+    ticker: "USDJPY Curncy"
+    usd_per_local: false
+    note: "Yen per dollar. Divide a yen index by this."
+  CHF:
+    ticker: "USDCHF Curncy"
+    usd_per_local: false
+    note: "Francs per dollar. Divide a Swiss index by this."
+  HKD:
+    ticker: "USDHKD Curncy"
+    usd_per_local: false
+    note: "Hong Kong dollars per dollar. Divide."
+  BRL:
+    ticker: "USDBRL Curncy"
+    usd_per_local: false
+    note: "Reais per dollar. Divide. IBOV itself did not resolve; the quote is here for when it does."
