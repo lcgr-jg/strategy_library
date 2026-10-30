@@ -127,3 +127,19 @@ def mixed_basis(labels: list[str]) -> str | None:
     if len(present) <= 1:
         return None
     return "mixed_basis: " + ", ".join(sorted(present))
+
+
+def net_vs_gross(labels: list[str]) -> str | None:
+    """Flag a net total-return leg against a gross or performance leg.
+
+    ``total_return`` with no net/gross suffix is a performance index (DAX).
+    That reinvests dividends, so it is the gross side of this comparison.
+    A price index or an ETF price is a different mismatch and is not renamed
+    into this flag.
+    """
+    present = {label for label in labels if label}
+    has_net = any("net" in label for label in present)
+    has_gross = any("gross" in label or label == BASIS_TOTAL_RETURN for label in present)
+    if has_net and has_gross:
+        return "net_vs_gross"
+    return None

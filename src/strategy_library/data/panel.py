@@ -1,4 +1,4 @@
-"""Build aligned leg returns for one spread. Sizing weights are Phase 2.
+"""Build aligned leg returns for one spread. Sizing lives in spreads.sizing.
 
 The basket inside a side is an equal weight of simple returns, and a day is
 kept only when every sleeve printed (or was bridged). Skipping a missing
@@ -12,7 +12,7 @@ from dataclasses import dataclass
 import pandas as pd
 
 from strategy_library.config import FxQuote, Leg, Settings, Spread
-from strategy_library.data.basis import SeriesChoice, choose_levels, mixed_basis
+from strategy_library.data.basis import SeriesChoice, choose_levels, mixed_basis, net_vs_gross
 from strategy_library.data.calendar import (
     ASIA_REGIONS,
     native_returns,
@@ -193,6 +193,11 @@ def build_spread_frame(
         }
     ).sort_index()
     warning = mixed_basis(long_bases + short_bases)
+    # Named separately from the generic mix so a net leg against a gross leg
+    # is visible without reading the basis labels.
+    dividend_mix = net_vs_gross(long_bases + short_bases)
+    if dividend_mix:
+        warning = dividend_mix if warning is None else f"{warning}; {dividend_mix}"
     instrument_sides = {build.leg.instrument for build in builds}
     if len(instrument_sides) > 1:
         extra = "instrument_mismatch: " + ", ".join(sorted(instrument_sides))

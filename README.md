@@ -1,7 +1,7 @@
 # Equity index spread library
 
 Maps macro shocks to equity index spreads. Phase 1 is the config and the data layer.
-Sizing, factor regressions, event studies and the volatility book are not built yet.
+Phase 2 sizes each spread three ways. Factor regressions, event studies and the volatility book are not built yet.
 
 `desk_core` is the Bloomberg client. This project wraps `refdata.hist` and `refdata.live`.
 It does not open its own `blpapi` session and it does not change `desk_core`.
@@ -15,6 +15,7 @@ cd strategy_library
 ..\.venv\Scripts\python.exe -m pip install -e ".[dev]"
 ..\.venv\Scripts\python.exe -m pytest tests -q
 ..\.venv\Scripts\python.exe scripts\verify_tickers.py
+..\.venv\Scripts\python.exe scripts\build_sized.py
 ```
 
 History requests go to B-PIPE (`on_server: true` in `config/settings.yaml`).
@@ -52,3 +53,15 @@ Japan versus Japan stays on `native`. MSCI EM stays on `native` as well. That in
 `scripts/verify_tickers.py` writes `reports/ticker_verification.md` and the csv files next to it. A series shorter than five years, or covering less than 80% of weekdays between its first and last print, is flagged and kept. Weekdays are the denominator, so Christmas is not a hole.
 
 The report is the list of what failed. Spreads are not dropped because a ticker failed.
+
+## Sizing
+
+`scripts/build_sized.py` reads the cached leg panels. It does not call Bloomberg. Each spread is written to `cache/sized/` with three daily returns and a cumulative index, in local currency and in USD.
+
+- Notional-neutral is the long return minus the short return.
+- Beta-neutral is the long return minus a rolling beta of the long leg on the short leg. The window is `beta_window` (252) and the beta is lagged by `beta_lag` (1), so the hedge on day t uses returns through t-1. The beta is an OLS slope with an intercept.
+- Vol-neutral scales each leg by inverse realised vol over `vol_window` (63), lagged the same way. The weights average 1, so equal vols reproduce the notional spread. A quieter leg gets a larger weight.
+
+The index starts from 100, which is the close before the first valid spread return. A missing return stays missing. The next valid day compounds from the last valid level.
+
+`basis_flag` is stored on every row. When one leg is a net total-return index and the other is gross, or a performance index such as DAX, the flag contains `net_vs_gross`. A price-versus-total-return mix stays `mixed_basis` and is not renamed. `reports/sized_spreads.csv` lists the flag for each spread. Local and USD are sized separately. A USD beta is not applied to a local return.

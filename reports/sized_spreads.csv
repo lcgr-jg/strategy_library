@@ -1,0 +1,29 @@
+id,basis_flag,net_vs_gross,n_notional,n_beta,n_vol,first_beta,first_vol
+as51_spx,,False,5490,5238,5427,2006-01-04,2005-04-06
+djushb_spx,"mixed_basis: price, total_return_gross",False,5504,5252,5441,2006-01-02,2005-04-06
+ewz_mxef,"mixed_basis: total_return_gross, total_return_net; instrument_mismatch: etf, index; net_vs_gross",True,5693,5441,5630,2005-12-22,2005-04-01
+ftsemib_dax,"mixed_basis: total_return, total_return_net; net_vs_gross",True,4518,4266,4455,2010-02-11,2009-05-22
+hscei_spx,,False,5490,5238,5427,2006-01-04,2005-04-06
+ibov_mxef,"mixed_basis: price, total_return_net",False,5694,5442,5631,2005-12-22,2005-04-01
+kre_s5finl,"instrument_mismatch: etf, index",False,5120,4868,5057,2007-06-26,2006-09-22
+krx_s5finl,,False,5570,5318,5507,2005-12-22,2005-04-01
+mcx_ukx,,False,5579,5327,5516,2006-01-04,2005-04-06
+mdax_dax,,False,5547,5295,5484,2005-12-27,2005-04-05
+mxef_spx,"mixed_basis: total_return_gross, total_return_net; net_vs_gross",True,5693,5441,5630,2005-12-22,2005-04-01
+ndx_spx,,False,5491,5239,5428,2006-01-04,2005-04-06
+rsp_spx,"instrument_mismatch: etf, index",False,5490,5238,5427,2006-01-04,2005-04-06
+rty_spx,,False,5499,5247,5436,2006-01-04,2005-04-06
+s5enrs_s5cond,,False,5490,5238,5427,2006-01-04,2005-04-06
+s5finl_s5util,,False,5490,5238,5427,2006-01-04,2005-04-06
+smi_sx5e,,False,5604,5352,5541,2005-12-27,2005-04-05
+sox_spx,,False,4239,3987,4176,2010-12-23,2010-03-26
+sphome_spx,,False,5496,5244,5433,2005-12-28,2005-04-01
+spsirbk_s5finl,,False,5493,5241,5430,2005-12-29,2005-04-05
+spw_spx,,False,5492,5240,5429,2006-01-04,2005-04-06
+sx7e_sx6p,,False,5599,5347,5536,2005-12-27,2005-04-05
+sxpp_sxxp,,False,5604,5352,5541,2005-12-27,2005-04-05
+tpx_nky,,False,5341,5089,5278,2006-01-17,2005-04-07
+tpxbnk_tpx,,False,5341,5089,5278,2006-01-17,2005-04-07
+tran_util,,False,5548,5296,5485,2005-12-22,2005-04-01
+us_cyc_def,,False,5490,5238,5427,2006-01-04,2005-04-06
+xhb_spx,"instrument_mismatch: etf, index",False,5215,4963,5152,2007-02-08,2006-05-09
