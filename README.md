@@ -37,6 +37,8 @@ One parquet per ticker and field, under `cache/`. A rerun fetches only the dates
 
 Requests are one ticker and one field. `desk_core.refdata.hist` aborts the whole call if one security errors while it is reading field data, so a batch would drop the later names. Reference snapshots are batched, because an unknown security comes back empty instead of raising. Every history and snapshot call is logged with a running count.
 
+B-PIPE is the default session. Before history is requested, one reference call reads Bloomberg's security error, which `refdata.live` does not keep. A ticker that comes back `NOT_ENTITLED` on the commodities B-PIPE application is then pulled from the desktop Terminal. An invalid ticker is not retried there. Entitled names stay on B-PIPE. The two sessions are a singleton inside `desk_core`, so the verification run asks for every B-PIPE series before it opens the Terminal.
+
 ## Calendar
 
 Each leg's return is computed on the days that leg traded. On the spread calendar, a day the leg was shut is a zero return, for at most `ffill_limit` spread sessions (default 5). A longer hole stays missing.

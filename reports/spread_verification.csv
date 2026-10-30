@@ -1,27 +1,29 @@
 id,alignment,rows,built,empty_legs,bases,tr_vs_price,warning
-us_cyc_def,native,5490,True,,"S5INDU Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, S5MATR Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, S5CONS Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, S5UTIL Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS","S5INDU Index:55.2%, S5MATR Index:58.0%, S5CONS Index:80.7%, S5UTIL Index:118.3%",
-rty_spx,native,5498,True,,"RTY Index=total_return_gross/RUTTR Index, SPX Index=total_return_gross/SPTR Index","RTY Index:34.0%, SPX Index:51.6%",
-spw_spx,native,5491,True,,"SPXEWI Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, SPX Index=total_return_gross/SPTR Index","SPXEWI Index:37.5%, SPX Index:51.6%",
-rsp_spx,native,5490,True,,"RSP US Equity=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, SPX Index=total_return_gross/SPTR Index","RSP US Equity:40.9%, SPX Index:51.6%","instrument_mismatch: etf, index"
-ndx_spx,native,5490,True,,"NDX Index=total_return_gross/XNDX Index, SPX Index=total_return_gross/SPTR Index","NDX Index:21.3%, SPX Index:51.6%",
-s5finl_s5util,native,5490,True,,"S5FINL Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, S5UTIL Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS","S5FINL Index:55.8%, S5UTIL Index:118.3%",
-kre_s5finl,native,5490,True,,"KRE US Equity=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, S5FINL Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS","KRE US Equity:63.5%, S5FINL Index:55.8%","instrument_mismatch: etf, index"
-krx_s5finl,native,5569,True,,"KRX Index=total_return_gross/KRXTR Index, S5FINL Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS","KRX Index:78.1%, S5FINL Index:55.8%",
-xhb_spx,native,5490,True,,"XHB US Equity=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, SPX Index=total_return_gross/SPTR Index","XHB US Equity:22.1%, SPX Index:51.6%","instrument_mismatch: etf, index"
-djushb_spx,native,5503,True,,"DJUSHB Index=price/price, SPX Index=total_return_gross/SPTR Index","DJUSHB Index:0.0%, SPX Index:51.6%","mixed_basis: price, total_return_gross"
-sox_spx,native,5490,True,,"SOX Index=total_return_gross/XSOX Index, SPX Index=total_return_gross/SPTR Index","SOX Index:53.6%, SPX Index:51.6%",
-s5enrs_s5cond,native,5490,True,,"S5ENRS Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, S5COND Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS","S5ENRS Index:86.4%, S5COND Index:31.8%",
-tran_util,native,5547,True,,"TRAN Index=total_return_gross/DJTTR Index, UTIL Index=total_return_gross/DJUTR Index","TRAN Index:37.9%, UTIL Index:115.6%",
-sx7e_sx6p,native,5598,True,,"SX7E Index=total_return_net/SX7T Index, SX6P Index=total_return_net/SX6R Index","SX7E Index:106.7%, SX6P Index:137.2%",
-ftsemib_dax,native,5571,True,,"FTSEMIB Index=total_return_net/FTSEMIBN Index, DAX Index=total_return/price","FTSEMIB Index:234.9%, DAX Index:0.0%","mixed_basis: total_return, total_return_net"
-mdax_dax,native,5546,True,,"MDAX Index=total_return/price, DAX Index=total_return/price","MDAX Index:0.0%, DAX Index:0.0%",
-smi_sx5e,native,5603,True,,"SMI Index=total_return_gross/SMIC Index, SX5E Index=total_return_gross/SX5GT Index","SMI Index:93.8%, SX5E Index:119.4%",
-sxpp_sxxp,native,5603,True,,"SXPP Index=total_return_net/SXPR Index, SXXP Index=total_return_net/SXXR Index","SXPP Index:103.1%, SXXP Index:81.8%",
-tpx_nky,native,5340,True,,"TPX Index=total_return_gross/TPXDDVD Index, NKY Index=total_return_gross/NKYTR Index","TPX Index:57.6%, NKY Index:47.8%",
-tpxbnk_tpx,native,5340,True,,"TPNBNK Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, TPX Index=total_return_gross/TPXDDVD Index","TPNBNK Index:87.9%, TPX Index:57.6%",
-mcx_ukx,native,5578,True,,"MCX Index=total_return_gross/TMCXG Index, UKX Index=total_return_gross/TUKXG Index","MCX Index:84.1%, UKX Index:124.6%",
-mxef_spx,native,5692,True,,"MXEF Index=total_return_net/NDUEEGF Index, SPX Index=total_return_gross/SPTR Index","MXEF Index:68.3%, SPX Index:51.6%","mixed_basis: total_return_gross, total_return_net"
-hscei_spx,asia_to_us,5489,True,,"HSCEI Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, SPX Index=total_return_gross/SPTR Index","HSCEI Index:67.0%, SPX Index:51.6%",
-ibov_mxef,native,5692,False,IBOV Index,"IBOV Index=price/price, MXEF Index=total_return_net/NDUEEGF Index",MXEF Index:68.3%,"mixed_basis: price, total_return_net"
-ewz_mxef,native,5693,True,,"EWZ US Equity=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, MXEF Index=total_return_net/NDUEEGF Index","EWZ US Equity:134.7%, MXEF Index:68.3%","mixed_basis: total_return_gross, total_return_net; instrument_mismatch: etf, index"
-as51_spx,asia_to_us,5489,True,,"AS51 Index=total_return_gross/AS51T Index, SPX Index=total_return_gross/SPTR Index","AS51 Index:147.5%, SPX Index:51.6%",
+us_cyc_def,native,5490,True,,"S5INDU Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, S5MATR Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, S5CONS Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, S5UTIL Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS","S5INDU Index:57.4%, S5MATR Index:58.9%, S5CONS Index:77.5%, S5UTIL Index:116.3%",
+rty_spx,native,5499,True,,"RTY Index=total_return_gross/RUTTR Index, SPX Index=total_return_gross/SPTR Index","RTY Index:34.0%, SPX Index:54.0%",
+spw_spx,native,5492,True,,"SPW Index=total_return_gross/SPXEWTR Index, SPX Index=total_return_gross/SPTR Index","SPW Index:50.8%, SPX Index:54.0%",
+rsp_spx,native,5490,True,,"RSP US Equity=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, SPX Index=total_return_gross/SPTR Index","RSP US Equity:42.2%, SPX Index:54.0%","instrument_mismatch: etf, index"
+ndx_spx,native,5491,True,,"NDX Index=total_return_gross/XNDX Index, SPX Index=total_return_gross/SPTR Index","NDX Index:21.3%, SPX Index:54.0%",
+s5finl_s5util,native,5490,True,,"S5FINL Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, S5UTIL Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS","S5FINL Index:57.0%, S5UTIL Index:116.3%",
+kre_s5finl,native,5490,True,,"KRE US Equity=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, S5FINL Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS","KRE US Equity:65.7%, S5FINL Index:57.0%","instrument_mismatch: etf, index"
+krx_s5finl,native,5570,True,,"KRX Index=total_return_gross/KRXTR Index, S5FINL Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS","KRX Index:78.0%, S5FINL Index:57.0%",
+spsirbk_s5finl,native,5493,True,,"SPSIRBK Index=total_return_gross/SPSIRBKT Index, S5FINL Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS","SPSIRBK Index:74.1%, S5FINL Index:57.0%",
+xhb_spx,native,5490,True,,"XHB US Equity=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, SPX Index=total_return_gross/SPTR Index","XHB US Equity:22.7%, SPX Index:54.0%","instrument_mismatch: etf, index"
+djushb_spx,native,5504,True,,"DJUSHB Index=price/price, SPX Index=total_return_gross/SPTR Index","DJUSHB Index:0.0%, SPX Index:54.0%","mixed_basis: price, total_return_gross"
+sphome_spx,native,5496,True,,"SPHOME Index=total_return_gross/SPSIHOTR Index, SPX Index=total_return_gross/SPTR Index","SPHOME Index:27.4%, SPX Index:54.0%",
+sox_spx,native,5491,True,,"SOX Index=total_return_gross/XSOX Index, SPX Index=total_return_gross/SPTR Index","SOX Index:53.7%, SPX Index:54.0%",
+s5enrs_s5cond,native,5490,True,,"S5ENRS Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, S5COND Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS","S5ENRS Index:83.9%, S5COND Index:33.3%",
+tran_util,native,5548,True,,"TRAN Index=total_return_gross/DJTTR Index, UTIL Index=total_return_gross/DJUTR Index","TRAN Index:37.9%, UTIL Index:115.6%",
+sx7e_sx6p,native,5599,True,,"SX7E Index=total_return_net/SX7T Index, SX6P Index=total_return_net/SX6R Index","SX7E Index:106.7%, SX6P Index:137.2%",
+ftsemib_dax,native,5572,True,,"FTSEMIB Index=total_return_net/FTSEMIBN Index, DAX Index=total_return/price","FTSEMIB Index:234.9%, DAX Index:0.0%","mixed_basis: total_return, total_return_net"
+mdax_dax,native,5547,True,,"MDAX Index=total_return/price, DAX Index=total_return/price","MDAX Index:0.0%, DAX Index:0.0%",
+smi_sx5e,native,5604,True,,"SMI Index=total_return_gross/SMIC Index, SX5E Index=total_return_gross/SX5GT Index","SMI Index:93.8%, SX5E Index:119.4%",
+sxpp_sxxp,native,5604,True,,"SXPP Index=total_return_net/SXPR Index, SXXP Index=total_return_net/SXXR Index","SXPP Index:103.1%, SXXP Index:81.8%",
+tpx_nky,native,5341,True,,"TPX Index=total_return_gross/TPXDDVD Index, NKY Index=total_return_gross/NKYTR Index","TPX Index:57.6%, NKY Index:47.8%",
+tpxbnk_tpx,native,5341,True,,"TPNBNK Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, TPX Index=total_return_gross/TPXDDVD Index","TPNBNK Index:89.6%, TPX Index:57.6%",
+mcx_ukx,native,5579,True,,"MCX Index=total_return_gross/TMCXG Index, UKX Index=total_return_gross/TUKXG Index","MCX Index:84.1%, UKX Index:124.6%",
+mxef_spx,native,5693,True,,"MXEF Index=total_return_net/NDUEEGF Index, SPX Index=total_return_gross/SPTR Index","MXEF Index:68.3%, SPX Index:54.0%","mixed_basis: total_return_gross, total_return_net"
+hscei_spx,asia_to_us,5490,True,,"HSCEI Index=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, SPX Index=total_return_gross/SPTR Index","HSCEI Index:64.8%, SPX Index:54.0%",
+ibov_mxef,native,5694,True,,"IBOV Index=price/price, MXEF Index=total_return_net/NDUEEGF Index","IBOV Index:0.0%, MXEF Index:68.3%","mixed_basis: price, total_return_net"
+ewz_mxef,native,5693,True,,"EWZ US Equity=total_return_gross/TOT_RETURN_INDEX_GROSS_DVDS, MXEF Index=total_return_net/NDUEEGF Index","EWZ US Equity:139.8%, MXEF Index:68.3%","mixed_basis: total_return_gross, total_return_net; instrument_mismatch: etf, index"
+as51_spx,asia_to_us,5490,True,,"AS51 Index=total_return_gross/AS51T Index, SPX Index=total_return_gross/SPTR Index","AS51 Index:147.5%, SPX Index:54.0%",

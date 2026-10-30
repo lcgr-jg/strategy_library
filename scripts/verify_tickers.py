@@ -166,19 +166,33 @@ def main() -> int:
 
     probe_tickers = list(load_probe_tickers())
     configured = sorted({ticker for ticker, _ in _jobs(spreads, factors, settings)})
-    logging.info("snapshot %s tickers", len(set(configured) | set(probe_tickers)))
-    snaps = _snapshots(source, sorted(set(configured) | set(probe_tickers)))
+    universe = sorted(set(configured) | set(probe_tickers))
+    # Classify on B-PIPE first, then pull history for entitled names before the
+    # Terminal names, so the singleton session is not reopened once per ticker.
+    source.prepare(universe)
+    logging.info("snapshot %s tickers, terminal %s", len(universe), len(source.terminal_tickers))
+    snaps = _snapshots(source, universe)
     named = set()
     if not snaps.empty and "NAME" in snaps.columns:
         named = set(snaps.index[snaps["NAME"].notna()].astype(str))
 
     rows: list[dict] = []
-    for ticker, field in _jobs(spreads, factors, settings):
+    jobs = sorted(
+        _jobs(spreads, factors, settings),
+        key=lambda item: (item[0] in source.terminal_tickers, item[0], item[1]),
+    )
+    for ticker, field in jobs:
         # Configured series are always requested. A blank snapshot must not hide a history entitlement.
         try:
             frame = cache.get(ticker, field, start, end)
         except Exception as exc:
-            rows.append({"ticker": ticker, "field": field, "status": "error", "detail": str(exc)[:200]})
+            rows.append({
+                "ticker": ticker,
+                "field": field,
+                "route": "terminal" if ticker in source.terminal_tickers else "bpipe",
+                "status": "error",
+                "detail": str(exc)[:200],
+            })
             continue
         stats = cover(
             frame["date"] if not frame.empty else [],
@@ -217,6 +231,7 @@ def main() -> int:
             {
                 "ticker": ticker,
                 "field": field,
+                "route": "terminal" if ticker in source.terminal_tickers else "bpipe",
                 "name": "" if pd.isna(name) else name,
                 "currency": "" if pd.isna(currency) else currency,
                 "status": status,
@@ -241,6 +256,7 @@ def main() -> int:
                 {
                     "ticker": ticker,
                     "field": "PX_LAST",
+                    "route": "terminal" if ticker in source.terminal_tickers else "bpipe",
                     "name": snaps.at[ticker, "NAME"],
                     "currency": snaps.at[ticker, "CRNCY"] if "CRNCY" in snaps.columns else "",
                     "status": probe_status,

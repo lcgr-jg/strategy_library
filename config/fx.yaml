@@ -30,4 +30,4 @@ quotes:
   BRL:
     ticker: "USDBRL Curncy"
     usd_per_local: false
-    note: "Reais per dollar. Divide. IBOV itself did not resolve; the quote is here for when it does."
+    note: "Reais per dollar. Divide a reais index level by this. IBOV itself is pulled on the Terminal."

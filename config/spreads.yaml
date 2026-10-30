@@ -31,13 +31,13 @@
   themes: [us_small_cap, risk]
   expected_drivers: {hy_oas: "-", us_2y: "-"}
   sizing_default: beta_neutral
-  vol_legs: {long: null, short: "VIX Index"}
+  vol_legs: {long: "RVX Index", short: "VIX Index"}
   alignment: native
-  notes: "RUTTR is Russ 2000 TR. SPTR is the S&P 500 total return. RVX did not resolve, so the long vol leg is empty."
+  notes: "RUTTR is Russ 2000 TR. SPTR is the S&P 500 total return. RVX is Terminal-only on this B-PIPE app."
 
 - id: spw_spx
   name: "S&P equal weight vs S&P 500"
-  long: {ticker: "SPXEWI Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+  long: {ticker: "SPW Index", tr_ticker: "SPXEWTR Index", basis: total_return_gross, currency: USD, region: US}
   short: {ticker: "SPX Index", tr_ticker: "SPTR Index", basis: total_return_gross, currency: USD, region: US}
   region: US
   currency: USD
@@ -46,7 +46,7 @@
   sizing_default: beta_neutral
   vol_legs: {long: null, short: "VIX Index"}
   alignment: native
-  notes: "SPW Index and SPXEW Index did not resolve. SPXEWI Index is the S&P Equal Weight index that did. RSP is the ETF version, in rsp_spx."
+  notes: "SPW is the S&P 500 equal-weight index and SPXEWTR is its total return. Both are Terminal-only here. SPXEWI is the same level and is entitled on B-PIPE; it is not the leg. RSP is the ETF version."
 
 - id: rsp_spx
   name: "RSP vs S&P 500"
@@ -59,7 +59,7 @@
   sizing_default: beta_neutral
   vol_legs: {long: null, short: "VIX Index"}
   alignment: native
-  notes: "ETF versus index. RSP's stated underlying SPXEWTR Index did not resolve. ETF price is not dividend-reinvested unless the total-return field compounds."
+  notes: "ETF versus index. The underlying total-return index is SPXEWTR, used on spw_spx. ETF price is not dividend-reinvested unless the total-return field compounds."
 
 - id: ndx_spx
   name: "Nasdaq 100 vs S&P 500"
@@ -70,9 +70,9 @@
   themes: [duration, megacap]
   expected_drivers: {us_10y_real: "-", us_10y: "-"}
   sizing_default: beta_neutral
-  vol_legs: {long: null, short: "VIX Index"}
+  vol_legs: {long: "VXN Index", short: "VIX Index"}
   alignment: native
-  notes: "XNDX is NASDAQ 100 total return. VXN did not resolve."
+  notes: "XNDX is NASDAQ 100 total return. VXN is Terminal-only on this B-PIPE app."
 
 - id: s5finl_s5util
   name: "S&P financials vs utilities"
@@ -98,7 +98,7 @@
   sizing_default: beta_neutral
   vol_legs: {long: null, short: "VIX Index"}
   alignment: native
-  notes: "KRE is the regional-bank ETF. Its stated underlying SPSIRBKT Index did not resolve. KRE changed benchmark from KBW to S&P regional banks in 2011. krx_s5finl is the index pair that did resolve."
+  notes: "KRE is the regional-bank ETF. spsirbk_s5finl is the S&P index it tracks. krx_s5finl is the older KBW index. KRE changed benchmark in 2011."
 
 - id: krx_s5finl
   name: "KBW regional banks vs S&P financials"
@@ -111,7 +111,20 @@
   sizing_default: beta_neutral
   vol_legs: {long: null, short: "VIX Index"}
   alignment: native
-  notes: "KRX is the KBW Regional Banking index, not the S&P select-industry index KRE tracks today. It is the regional-bank index this login can see."
+  notes: "KRX is the KBW Regional Banking index, not the S&P select-industry index KRE tracks today. Kept because the benchmark changed in 2011."
+
+- id: spsirbk_s5finl
+  name: "S&P regional banks vs S&P financials"
+  long: {ticker: "SPSIRBK Index", tr_ticker: "SPSIRBKT Index", basis: total_return_gross, currency: USD, region: US}
+  short: {ticker: "S5FINL Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [regional_banks, credit]
+  expected_drivers: {us_2s10s: "+", hy_oas: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: native
+  notes: "SPSIRBK is the index KRE tracks. SPSIRBKT is its total return. Both are Terminal-only on this B-PIPE app."
 
 - id: xhb_spx
   name: "XHB vs S&P 500"
@@ -124,7 +137,7 @@
   sizing_default: beta_neutral
   vol_legs: {long: null, short: "VIX Index"}
   alignment: native
-  notes: "XHB is the homebuilders ETF. Its stated underlying SPSIHOTR Index did not resolve. djushb_spx is the homebuilder index that did."
+  notes: "XHB is the homebuilders ETF. sphome_spx is the S&P index it tracks. djushb_spx is a different Dow Jones index."
 
 - id: djushb_spx
   name: "DJ home construction vs S&P 500"
@@ -137,7 +150,20 @@
   sizing_default: beta_neutral
   vol_legs: {long: null, short: "VIX Index"}
   alignment: native
-  notes: "DJUSHB is DJ US Total Market Home Construction. It is not the S&P Homebuilders Select Industry index XHB tracks. The name says total market, not total return."
+  notes: "DJUSHB is DJ US Total Market Home Construction. It is not the S&P Homebuilders Select Industry index. The total-return field on this ticker does not compound beyond price."
+
+- id: sphome_spx
+  name: "S&P homebuilders vs S&P 500"
+  long: {ticker: "SPHOME Index", tr_ticker: "SPSIHOTR Index", basis: total_return_gross, currency: USD, region: US}
+  short: {ticker: "SPX Index", tr_ticker: "SPTR Index", basis: total_return_gross, currency: USD, region: US}
+  region: US
+  currency: USD
+  themes: [housing, rates]
+  expected_drivers: {us_10y: "-", us_10y_real: "-"}
+  sizing_default: beta_neutral
+  vol_legs: {long: null, short: "VIX Index"}
+  alignment: native
+  notes: "SPHOME is the S&P Homebuilders Select Industry index. SPSIHOTR is its total return. Both are Terminal-only on this B-PIPE app."
 
 - id: sox_spx
   name: "SOX vs S&P 500"
@@ -187,9 +213,9 @@
   themes: [europe_banks, curve]
   expected_drivers: {bund_10y: "+", us_2s10s: "+"}
   sizing_default: beta_neutral
-  vol_legs: {long: null, short: null}
+  vol_legs: {long: "V2X Index", short: null}
   alignment: native
-  notes: "Both total-return legs are net. SX7T is Euro Stoxx banks. SX6R is STOXX 600 utilities. The price legs are already from those two families, so the family mismatch is in the original pair. SX6T is Euro Stoxx utilities and is not used. V2X did not resolve."
+  notes: "Both total-return legs are net. SX7T is Euro Stoxx banks. SX6R is STOXX 600 utilities. The price legs are already from those two families, so the family mismatch is in the original pair. SX6T is Euro Stoxx utilities and is not used. V2X is Terminal-only on this B-PIPE app."
 
 - id: ftsemib_dax
   name: "FTSE MIB vs DAX"
@@ -310,7 +336,7 @@
 
 - id: ibov_mxef
   name: "Ibovespa vs MSCI EM"
-  long: {ticker: "IBOV Index", currency: BRL, region: BR}
+  long: {ticker: "IBOV Index", tr_field: TOT_RETURN_INDEX_GROSS_DVDS, currency: BRL, region: BR}
   short: {ticker: "MXEF Index", tr_ticker: "NDUEEGF Index", basis: total_return_net, currency: USD, region: GLOBAL}
   region: GLOBAL
   currency: mixed
@@ -319,7 +345,7 @@
   sizing_default: beta_neutral
   vol_legs: {long: null, short: null}
   alignment: native
-  notes: "IBOV Index did not resolve on this B-PIPE login, and neither did PETR4 BZ Equity. The spread is kept so the failure stays in the report. ewz_mxef is the US-listed substitute that does resolve."
+  notes: "IBOV is Terminal-only on this B-PIPE app. ewz_mxef is the US-listed ETF version of the same idea."
 
 - id: ewz_mxef
   name: "EWZ vs MSCI EM"
@@ -332,7 +358,7 @@
   sizing_default: beta_neutral
   vol_legs: {long: null, short: null}
   alignment: native
-  notes: "Substitute for ibov_mxef. EWZ is a US-listed ETF, so this is not the local Ibovespa. Brazil cash did not resolve on this login."
+  notes: "US-listed ETF beside ibov_mxef. EWZ is not the local Ibovespa."
 
 - id: as51_spx
   name: "ASX 200 vs S&P 500"

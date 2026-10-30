@@ -1,27 +1,15 @@
-# Symbols checked with a snapshot every verification run.
-# History is pulled only if the snapshot returns a name, so a dead ticker
-# costs one batched reference call instead of a 20-year history request.
-# SPW, the S&P select-industry underlyings, Ibovespa, V2X, VXN, RVX, CESI and
-# LF98OAS failed the Phase 1 probe. They stay on this list so a later entitlement is noticed.
+# Extra symbols checked with a snapshot every verification run.
+# History is pulled only if the snapshot returns a name.
+# Names that are real legs or factors are not repeated here.
+# IBOVESPA and VSTOXX are invalid on the Terminal as well as on B-PIPE.
+# The live VSTOXX series is V2X Index. SPXEW is an alias of the equal-weight index.
 tickers:
-  - "SPW Index"
   - "SPXEW Index"
-  - "SPXEWTR Index"
-  - "SPSIRBK Index"
-  - "SPSIRBKT Index"
-  - "SPHOME Index"
-  - "SPSIHOTR Index"
-  - "IBOV Index"
   - "IBOVESPA Index"
   - "PETR4 BZ Equity"
   - "BOVA11 BZ Equity"
-  - "V2X Index"
   - "VSTOXX Index"
-  - "VXN Index"
-  - "RVX Index"
   - "VOLQ Index"
-  - "CESIUSD Index"
-  - "LF98OAS Index"
   - "LF98TRUU Index"
   - "TP17BNK Index"
   - "NDUEEGF Index"

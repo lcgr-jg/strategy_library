@@ -64,7 +64,7 @@ factors:
     ticker: "LF98OAS Index"
     transform: diff
     unit: percent
-    note: "Did not resolve on the Phase 1 B-PIPE probe. Left here so the failure stays visible. Not replaced with an ETF price."
+    note: "Terminal-only on this B-PIPE app. Daily change in percentage points, same as the other yields. Not an ETF price."
   - id: bund_10y
     name: "Germany 10y"
     ticker: "GDBR10 Index"
@@ -80,4 +80,4 @@ factors:
     ticker: "CESIUSD Index"
     transform: diff
     unit: index_points
-    note: "Did not resolve on the Phase 1 B-PIPE probe. Daily change is the intended transform if it later resolves."
+    note: "Terminal-only on this B-PIPE app. Daily change of the surprise index, in index points."
