@@ -4,6 +4,9 @@ history_end: null          # null means today, so an incremental run picks up th
 on_server: true            # B-PIPE. desk_core would otherwise open the desktop Terminal on Windows.
 cache_dir: cache
 
+# Phase 3. The fit on a date includes that date: it describes co-movement, it is not a weight.
+factor_windows: [63, 126, 252]
+
 # Phase 2 reads these. They are lagged so a weight for day t uses data through t-1 only.
 beta_window: 252
 vol_window: 63

@@ -1,7 +1,8 @@
 # Equity index spread library
 
 Maps macro shocks to equity index spreads. Phase 1 is the config and the data layer.
-Phase 2 sizes each spread three ways. Factor regressions, event studies and the volatility book are not built yet.
+Phase 2 sizes each spread three ways. Phase 3 regresses those returns on the macro factors.
+Event studies and the volatility book are not built yet.
 
 `desk_core` is the Bloomberg client. This project wraps `refdata.hist` and `refdata.live`.
 It does not open its own `blpapi` session and it does not change `desk_core`.
@@ -16,7 +17,19 @@ cd strategy_library
 ..\.venv\Scripts\python.exe -m pytest tests -q
 ..\.venv\Scripts\python.exe scripts\verify_tickers.py
 ..\.venv\Scripts\python.exe scripts\build_sized.py
+..\.venv\Scripts\python.exe scripts\build_factors.py
+..\.venv\Scripts\python.exe scripts\write_factor_map.py
 ```
+
+### Recurring refresh
+
+One command rebuilds the sized spreads, the factor betas, and an interactive HTML map, then opens it in the browser:
+
+```powershell
+..\.venv\Scripts\python.exe scripts\refresh_study.py
+```
+
+Use `--update-history` when you want Bloomberg to fill new dates first. Use `--no-open` if you only want the file written. The page is `reports/factor_map.html`. It does not live-update; re-run the script when you want a new print.
 
 History requests go to B-PIPE (`on_server: true` in `config/settings.yaml`).
 Credentials stay in `desk_core/login.py`. Nothing in this repo reads or stores them.
@@ -65,3 +78,19 @@ The report is the list of what failed. Spreads are not dropped because a ticker 
 The index starts from 100, which is the close before the first valid spread return. A missing return stays missing. The next valid day compounds from the last valid level.
 
 `basis_flag` is stored on every row. When one leg is a net total-return index and the other is gross, or a performance index such as DAX, the flag contains `net_vs_gross`. A price-versus-total-return mix stays `mixed_basis` and is not renamed. `reports/sized_spreads.csv` lists the flag for each spread. Local and USD are sized separately. A USD beta is not applied to a local return.
+
+## Factor sensitivity
+
+`scripts/build_factors.py` reads the cached factor levels and the sized spreads. It does not call Bloomberg.
+
+Each factor is transformed the way `config/factors.yaml` says. Yields, breakevens, real yields, OAS and CESI are daily changes in percentage points. DXY, oil, copper and USDJPY are simple percent changes. The 2s10s slope is the 10y yield minus the 2y yield, then the daily change of that slope. Nothing is divided by 100, so a yield beta is spread return per 1 percentage point.
+
+The regression is univariate with an intercept. Windows are `factor_windows` (63, 126, 252). The fit dated t includes day t, because it describes co-movement. It is not a position, and it is not lagged the way the sizing weights are. A day is used only when both the spread and the factor printed. The window counts those paired sessions.
+
+The latest table, `reports/factor_betas_latest.csv`, has notional, beta-neutral and vol-neutral, in local currency and in USD. The daily files under `cache/factors/betas/` keep the beta-neutral path only (the beta and the t-stat). The other two sizing methods are the latest window, because a full daily book of all three is about half a gigabyte and can be rebuilt from the sized returns. The comparison with `expected_drivers` uses the beta-neutral spread: local when the spread has one currency, USD when the legs are mixed. Those driver signs are still placeholders.
+
+A sign flip across the shortest and longest window is kept. So is a long-window beta whose early-half median and later-half median have opposite signs. `reports/factor_sensitivity.md` lists them. Charts of the placeholder drivers are in `reports/charts/`. The heatmap is of t-stats, not raw betas, because a yield point and a percent change in oil are different units.
+
+A native Japan, Hong Kong or Australia spread is still joined on the calendar date. A US factor that day can print after that equity close. Asia-to-US spreads already carry the Asian return on the prior US date.
+
+`reports/factor_map.html` is the desk view. Pick a factor, compare the 252-day and 63-day response (scaled to 10bp for yields and 1% for prices), then inspect the beta-neutral cumulative index and the weekly rolling beta path for one spread. The page embeds the study output and loads Plotly from a CDN; it does not call Bloomberg.

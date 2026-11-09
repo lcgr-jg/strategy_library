@@ -75,6 +75,8 @@ class Settings:
     ffill_limit: int
     tr_growth_gap: float
     tr_field: str
+    # Includes the day it is stamped on. These describe co-movement, so they are not lagged.
+    factor_windows: tuple[int, ...] = (63, 126, 252)
 
 
 @dataclass(frozen=True)
@@ -149,6 +151,7 @@ def load_settings(path: Path | None = None) -> Settings:
         ffill_limit=int(raw["ffill_limit"]),
         tr_growth_gap=float(raw["tr_growth_gap"]),
         tr_field=str(raw["tr_field"]),
+        factor_windows=tuple(int(window) for window in raw.get("factor_windows", [63, 126, 252])),
     )
 
 

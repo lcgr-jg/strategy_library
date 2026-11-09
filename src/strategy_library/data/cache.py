@@ -73,6 +73,10 @@ class ParquetCache:
     def path_for(self, ticker: str, field: str) -> Path:
         return self.root / f"{_safe(ticker)}__{_safe(field)}.parquet"
 
+    def read_stored(self, ticker: str, field: str) -> pd.DataFrame:
+        """Return what is already on disk. Does not ask Bloomberg to fill a gap."""
+        return self._read(ticker, field)
+
     def get(
         self,
         ticker: str,

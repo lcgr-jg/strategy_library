@@ -1,0 +1,51 @@
+spread,factor,book,window,placeholder,beta,tstat,r2,hypothesis,basis_flag,factor_timing
+us_cyc_def,us_10y,local,252,+,-0.042769254276616354,-3.290290884808517,0.04150665010824864,disagrees,,same_calendar_date
+us_cyc_def,us_2s10s,local,252,+,-0.030803541528709684,-1.2904033430545798,0.0066164935777525006,disagrees,,same_calendar_date
+rty_spx,us_2y,local,252,-,-0.019020772966101218,-2.0890692427577022,0.017157328445976193,matches,,same_calendar_date
+rty_spx,hy_oas,local,252,-,-0.0034320566500028412,-0.4637594942140789,0.0008595520086303991,matches,,same_calendar_date
+spw_spx,us_10y,local,252,+,-0.03714403300768415,-5.788053981636909,0.11817066489261105,disagrees,,same_calendar_date
+rsp_spx,us_10y,local,252,+,-0.036111209286236956,-5.6222039412511595,0.11224484044209748,disagrees,"instrument_mismatch: etf, index",same_calendar_date
+ndx_spx,us_10y,local,252,-,0.017935831975834773,2.362813211361354,0.02184374060885664,disagrees,,same_calendar_date
+ndx_spx,us_10y_real,local,252,-,0.01777699764859989,1.9572800365282232,0.015092506310678412,disagrees,,same_calendar_date
+s5finl_s5util,us_10y,local,252,+,-0.028584363651302066,-2.0994407029491398,0.01732515214569924,disagrees,,same_calendar_date
+s5finl_s5util,us_2s10s,local,252,+,0.0031320163163339396,0.12641657907117615,6.39205197622038e-05,matches,,same_calendar_date
+kre_s5finl,us_2s10s,local,252,+,0.0181191711031434,0.7528617433777143,0.0022620746356722897,matches,"instrument_mismatch: etf, index",same_calendar_date
+kre_s5finl,hy_oas,local,252,-,0.0026234886020352795,0.24418034695122268,0.0002384393004895658,disagrees,"instrument_mismatch: etf, index",same_calendar_date
+krx_s5finl,us_2s10s,local,252,+,0.01904034075026891,0.7885551171295313,0.0024811054951386934,matches,,same_calendar_date
+krx_s5finl,hy_oas,local,252,-,0.005207054800954026,0.48420384498425295,0.0009369347839442436,disagrees,,same_calendar_date
+spsirbk_s5finl,us_2s10s,local,252,+,0.0181455481594615,0.7589737412013093,0.0022988675901047316,matches,,same_calendar_date
+spsirbk_s5finl,hy_oas,local,252,-,0.00441934106384731,0.41415026064015,0.0006856113681035322,disagrees,,same_calendar_date
+xhb_spx,us_10y,local,252,-,-0.1727494346807412,-9.3646351932696,0.2596900479301873,matches,"instrument_mismatch: etf, index",same_calendar_date
+xhb_spx,us_10y_real,local,252,-,-0.160756601209871,-6.86848674156914,0.15874798987106475,matches,"instrument_mismatch: etf, index",same_calendar_date
+djushb_spx,us_10y,local,252,-,-0.21610262054879542,-9.38683153221764,0.2606013635540265,matches,"mixed_basis: price, total_return_gross",same_calendar_date
+djushb_spx,us_10y_real,local,252,-,-0.21226105196913048,-7.32831871096428,0.17683076289653907,matches,"mixed_basis: price, total_return_gross",same_calendar_date
+sphome_spx,us_10y,local,252,-,-0.17327054175019144,-9.359106403149429,0.25946303893764416,matches,,same_calendar_date
+sphome_spx,us_10y_real,local,252,-,-0.1607220468901763,-6.838655215380754,0.1575888586828557,matches,,same_calendar_date
+sox_spx,us_10y_real,local,252,-,0.060038252622352635,1.764319882658669,0.01229817040155676,disagrees,,same_calendar_date
+sox_spx,copper,local,252,+,0.27861130659274197,3.8576313626371563,0.056181084212244936,matches,,same_calendar_date
+s5enrs_s5cond,us_10y_be,local,252,+,0.23560628983774196,5.112734379769689,0.0946623011382082,matches,,same_calendar_date
+s5enrs_s5cond,wti,local,252,+,0.25240141321190784,11.878911387257109,0.36079124552228375,matches,,same_calendar_date
+tran_util,us_10y,local,252,+,-0.07445643950110702,-3.6379533878880923,0.05027720360757534,disagrees,,same_calendar_date
+tran_util,wti,local,252,+,-0.10227476497942446,-3.9047469825728993,0.05748244534864619,disagrees,,same_calendar_date
+sx7e_sx6p,us_2s10s,local,252,+,-0.006565808651316202,-0.1754779150309455,0.0001231548256752108,disagrees,,same_calendar_date
+sx7e_sx6p,bund_10y,local,252,+,-0.09740839187969796,-4.007952849763515,0.06037534202677548,disagrees,,same_calendar_date
+ftsemib_dax,bund_10y,local,252,+,0.018456716927339373,1.9186893946365693,0.014511783059603047,matches,"mixed_basis: total_return, total_return_net; net_vs_gross",same_calendar_date
+mdax_dax,bund_10y,local,252,+,-0.007514278539220079,-0.7812408916085697,0.002435403651829065,disagrees,,same_calendar_date
+smi_sx5e,dxy,usd,252,-,-0.2532401476372658,-1.903155974030163,0.014281105832608077,matches,,same_calendar_date
+sxpp_sxxp,dxy,local,252,-,-0.9730949927677567,-3.9022271356301714,0.057412537167975904,matches,,same_calendar_date
+sxpp_sxxp,copper,local,252,+,0.4652100113744196,12.07153956128956,0.3682434703342633,matches,,same_calendar_date
+tpx_nky,usdjpy,local,252,-,0.10888832955492074,1.334925611366637,0.007077655277653896,disagrees,,same_calendar_date_native_asia
+tpx_nky,jgb_10y,local,252,+,0.006491947464207557,0.586787949312367,0.0013753860975322723,matches,,same_calendar_date_native_asia
+tpxbnk_tpx,usdjpy,local,252,-,-0.12779029990796237,-0.8251090353342057,0.002715823895678383,matches,,same_calendar_date_native_asia
+tpxbnk_tpx,jgb_10y,local,252,+,0.07081400264473248,3.4558036271765697,0.04559235374576672,matches,,same_calendar_date_native_asia
+mcx_ukx,dxy,local,252,-,-0.22009509056969673,-1.9910310661110067,0.015609304905015437,matches,,same_calendar_date
+mxef_spx,dxy,local,252,-,-0.30427095975375357,-1.066072846536188,0.004525472254809741,matches,"mixed_basis: total_return_gross, total_return_net; net_vs_gross",same_calendar_date
+mxef_spx,copper,local,252,+,0.18714052986327215,3.6438522245792906,0.050432152440355496,matches,"mixed_basis: total_return_gross, total_return_net; net_vs_gross",same_calendar_date
+hscei_spx,dxy,usd,252,-,-0.5336868871897734,-2.3378937175165087,0.021395224596067273,matches,,same_calendar_date
+hscei_spx,copper,usd,252,+,-0.015189961853257421,-0.3505896213475523,0.0004914107271572967,disagrees,,same_calendar_date
+ibov_mxef,dxy,usd,252,-,-2.0493417251727117,-4.902243424708929,0.08769775580914048,matches,"mixed_basis: price, total_return_net",same_calendar_date
+ibov_mxef,wti,usd,252,+,-0.0908725672777345,-2.2824867653762797,0.020413584979251227,disagrees,"mixed_basis: price, total_return_net",same_calendar_date
+ewz_mxef,dxy,local,252,-,-2.036682450730947,-5.011741053990742,0.09129751460435455,matches,"mixed_basis: total_return_gross, total_return_net; instrument_mismatch: etf, index; net_vs_gross",same_calendar_date
+ewz_mxef,wti,local,252,+,-0.09196834294516792,-2.3675271361789427,0.021929072942058283,disagrees,"mixed_basis: total_return_gross, total_return_net; instrument_mismatch: etf, index; net_vs_gross",same_calendar_date
+as51_spx,dxy,usd,252,-,-0.19335985787545545,-1.1328062618231847,0.005106786969242174,matches,,same_calendar_date
+as51_spx,copper,usd,252,+,0.01498335511443871,0.4664114896795154,0.0008694021929288755,matches,,same_calendar_date
